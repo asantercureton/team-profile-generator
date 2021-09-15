@@ -1,32 +1,20 @@
-class Manager {
+const Employee = require('./assets/js/Employee.js');
+
+class Manager extends Employee {
     constructor(name, title, id, email, officeNum) {
       // TODO: Add code here
-      this.name = name;
-      this.title = title;
-      this.id = id;
-      this.email = email;
-      this.number = number;
+      // super(): Access and Calls function on object's parent.
+      super (name, id, email);
+      this.title = "Team Manager";
+      this.officeNumber = officeNumber;
     };
   
-  
-    getName(){
-      return this.name;
-    };
-  
-    getId(){
-      return this.id;
-    };
-  
-    getTitle(){
+    getRole(){
       return this.title;
     };
   
-    getEmail(){
-      return this.email;
-    };
-  
-    getNumber(){
-      return this.number;
+    getOfficeNumber(){
+      return this.officeNumber;
     };
   }
   

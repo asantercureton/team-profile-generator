@@ -1,28 +1,15 @@
-class Intern {
-    constructor(name, title, id, email, school) {
+const Employee = require('./assets/js/Employee.js');
+
+class Intern extends Employee {
+    constructor(name, id, email, school) {
       // TODO: Add code here
-      this.name = name;
-      this.title = title;
-      this.id = id;
-      this.email = email;
+      super (name, id, email);
+      this.title = "Intern";
       this.school = school;
     };
   
-  
-    getName(){
-      return this.name;
-    };
-  
-    getId(){
-      return this.id;
-    };
-  
-    getTitle(){
+    getRole(){
       return this.title;
-    };
-  
-    getEmail(){
-      return this.email;
     };
   
     getSchool(){

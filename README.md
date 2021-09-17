@@ -2,7 +2,7 @@
 Team Profile Generator
 
 ## Description
-Designed a professional README Generator that generates a concise README file outlining the key points andfeatures of the user's project using command-line prompts.
+Designed a Team Profile Generator that generates a concise README file outlining the key points and features of the user's project using command-line prompts.
 ## Table Of Contents
 [Instructions](#instructions)
 

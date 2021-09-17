@@ -5,12 +5,22 @@ class Engineer extends Employee {
       // TODO: Add code here
       super (name, id, email),
       this.title = "Engineer";
+      this.id = id;
+      this.email = email;
       this.gitHub = gitHub;
     };
   
   
     getRole(){
       return this.title;
+    };
+
+    getId(){
+      return this.id;
+    };
+
+    getEmail(){
+      return this.email;
     };
   
     getGitHub(){

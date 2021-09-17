@@ -4,13 +4,23 @@ class Manager extends Employee {
     constructor(name, title, id, email, officeNumber) {
       // TODO: Add code here
       // super(): Access and Calls function on object's parent.
-      super (name, id, email);
+      super (name);
       this.title = "Team Manager";
+      this.id = id;
+      this.email = email;
       this.officeNumber = officeNumber;
     };
   
     getRole(){
       return this.title;
+    };
+
+    getId(){
+      return this.id;
+    };
+
+    getEmail(){
+      return this.email;
     };
   
     getOfficeNumber(){

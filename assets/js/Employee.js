@@ -5,7 +5,7 @@ class Employee {
     this.title = title;
     this.id = id;
     this.email = email;
-    this.gitHub = gitHub;
+    // this.gitHub = gitHub;
   };
 
 
@@ -25,9 +25,9 @@ class Employee {
     return this.email;
   };
 
-  getGitHub(){
-    return this.gitHub;
-  };
+  // getGitHub(){
+  //   return this.gitHub;
+  // };
 }
 
 module.exports = Employee;

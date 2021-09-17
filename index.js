@@ -49,27 +49,40 @@ const addManager = () => {
             }
         },
         {
-            type: "confirm",
-            message: "Are you the Manager for this team?",
-            name: "titleMgr",
-            validate: is_mgr => {
-                if (is_mgr) {
+            type: "input",
+            message: "What is your id?",
+            name: "idMgr",
+            validate: your_id => {
+                if (your_id) {
                     return true;
                 } else {
-                    console.log('Provide your name');
+                    console.log('Provide your id');
                     return false;
                 }
             }
         },
         {
             type: "input",
-            message: "What is your name?",
-            name: "nameMgr",
-            validate: your_name => {
-                if (your_name) {
+            message: "What is your email?",
+            name: "emailMgr",
+            validate: your_email => {
+                if (your_email) {
                     return true;
                 } else {
-                    console.log('Provide your name');
+                    console.log('Provide your email');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your office phone number?",
+            name: "phoneMgr",
+            validate: your_phone => {
+                if (your_phone) {
+                    return true;
+                } else {
+                    console.log('Provide your office phone number');
                     return false;
                 }
             }
@@ -78,9 +91,9 @@ const addManager = () => {
         const mgr = new Manager(
             res.nameMgr, 
             res.titleMgr, 
-            // res.id, 
-            // res.email, 
-            // res.officeNumber
+            res.idMgr, 
+            res.emailMgr, 
+            res.phoneMgr
             );
         myTeam.push(mgr);
         addTeam();
@@ -90,17 +103,67 @@ const addManager = () => {
 const addEngineer = () => {
     inquirer.prompt([
         {
-            type: "list",
-            message: "Are you an Engineer for this team?",
-            choices: ["Yes", "No"],
-            name: "addEngineer"
-        }
+            type: "input",
+            message: "What is your name?",
+            name: "nameEngineer",
+            validate: your_nameEng => {
+                if (your_nameEng) {
+                    return true;
+                } else {
+                    console.log('Provide your name');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your id?",
+            name: "idEngineer",
+            validate: your_idEng => {
+                if (your_idEng) {
+                    return true;
+                } else {
+                    console.log('Provide your id');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "emailEngineer",
+            validate: your_emailEng => {
+                if (your_emailEng) {
+                    return true;
+                } else {
+                    console.log('Provide your email');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your GitHub username?",
+            name: "gitHubEngineer",
+            validate: your_gitHubEng => {
+                if (your_gitHubEng) {
+                    return true;
+                } else {
+                    console.log('Provide your GitHub username');
+                    return false;
+                }
+            }
+        },
     ]).then((res) => {
-        if (res.addEngineer === "Yes") {
-            newEngineer();
-        } else {
-            newIntern();
-        }
+        const engineer = new Engineer(
+            res.nameEngineer, 
+            res.titleEngineer, 
+            res.idEngineer, 
+            res.emailEngineer, 
+            res.gitHubEngineer
+            );
+        myTeam.push(engineer);
+        addTeam();
     });
 }
 // ADD INTERN
@@ -141,10 +204,17 @@ const outputHTML = (myTeam) => {
     <body>
         <main class="container">`
         for (var i=0; i<myTeam.length; i++) {
-            htmlTemplate += `<div>${myTeam[i].name}
-            ${myTeam[i].title}</div>`
+            htmlTemplate += `<div>
+        ${myTeam[i].name}
+        ${myTeam[i].title}
+        ${myTeam[i].id}
+        ${myTeam[i].email}
+        ${myTeam[i].gitHub}
+        ${myTeam[i].phone}
+        </div>`
         }
-        htmlTemplate += `</main>
+        htmlTemplate += 
+        `</main>
     </body>
     
     </html>`

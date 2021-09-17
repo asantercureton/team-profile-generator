@@ -254,18 +254,47 @@ const outputHTML = (myTeam) => {
     
     <body>
         <main class="container">`
-        for (var i=0; i<myTeam.length; i++) {
-            htmlTemplate += `<div>
-        ${myTeam[i].name}
-        ${myTeam[i].title}
-        ${myTeam[i].id}
-        ${myTeam[i].email}
-        ${myTeam[i].gitHub}
-        ${myTeam[i].phone}
-        ${myTeam[i].school}
-        </div>`
-        }
-        htmlTemplate += 
+        switch (new Employee) {
+            case Manager:
+                htmlTemplate += `<div>
+                ${myTeam[i].name}
+                ${myTeam[i].title}
+                ${myTeam[i].id}
+                ${myTeam[i].email}
+                ${myTeam[i].phone}
+                </div>`
+              break;
+            case Engineer:
+                htmlTemplate += `<div>
+                ${myTeam[i].name}
+                ${myTeam[i].title}
+                ${myTeam[i].id}
+                ${myTeam[i].email}
+                ${myTeam[i].gitHub}
+                </div>`
+              break;
+            case Intern:
+                htmlTemplate += `<div>
+                ${myTeam[i].name}
+                ${myTeam[i].title}
+                ${myTeam[i].id}
+                ${myTeam[i].email}
+                ${myTeam[i].school}
+                </div>`
+          }
+          htmlTemplate +=
+        // for (var i=0; i<myTeam.length; i++) {
+        //     htmlTemplate += `<div>
+        // ${myTeam[i].name}
+        // ${myTeam[i].title}
+        // ${myTeam[i].id}
+        // ${myTeam[i].email}
+        // ${myTeam[i].gitHub}
+        // ${myTeam[i].phone}
+        // ${myTeam[i].school}
+        // </div>`
+        // }
+        // htmlTemplate += 
         `</main>
     </body>
     

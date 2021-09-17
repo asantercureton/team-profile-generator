@@ -39,8 +39,8 @@ const addManager = () => {
             type: "input",
             message: "What is your name?",
             name: "nameMgr",
-            validate: your_name => {
-                if (your_name) {
+            validate: your_nameMgr => {
+                if (your_nameMgr) {
                     return true;
                 } else {
                     console.log('Provide your name');
@@ -52,8 +52,8 @@ const addManager = () => {
             type: "input",
             message: "What is your id?",
             name: "idMgr",
-            validate: your_id => {
-                if (your_id) {
+            validate: your_idMgr => {
+                if (your_idMgr) {
                     return true;
                 } else {
                     console.log('Provide your id');
@@ -65,8 +65,8 @@ const addManager = () => {
             type: "input",
             message: "What is your email?",
             name: "emailMgr",
-            validate: your_email => {
-                if (your_email) {
+            validate: your_emailMgr => {
+                if (your_emailMgr) {
                     return true;
                 } else {
                     console.log('Provide your email');
@@ -78,8 +78,8 @@ const addManager = () => {
             type: "input",
             message: "What is your office phone number?",
             name: "phoneMgr",
-            validate: your_phone => {
-                if (your_phone) {
+            validate: your_phoneMgr => {
+                if (your_phoneMgr) {
                     return true;
                 } else {
                     console.log('Provide your office phone number');
@@ -170,17 +170,68 @@ const addEngineer = () => {
 const addIntern = () => {
     inquirer.prompt([
         {
-            type: "list",
-            message: "Are you an Intern for this team?",
-            choices: ["Yes", "No"],
-            name: "addIntern"
-        }
+            type: "input",
+            message: "What is your name?",
+            name: "nameIntern",
+            validate: your_nameIntern => {
+                if (your_nameIntern) {
+                    return true;
+                } else {
+                    console.log('Provide your name');
+                    return false;
+                }
+            }
+
+        },
+        {
+            type: "input",
+            message: "What is your id?",
+            name: "idIntern",
+            validate: your_idIntern => {
+                if (your_idIntern) {
+                    return true;
+                } else {
+                    console.log('Provide your id');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "emailIntern",
+            validate: your_emailIntern => {
+                if (your_emailIntern) {
+                    return true;
+                } else {
+                    console.log('Provide your email');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What school are you currently attending?",
+            name: "schoolIntern",
+            validate: your_schoolIntern => {
+                if (your_schoolIntern) {
+                    return true;
+                } else {
+                    console.log('Provide the school you are currently attending');
+                    return false;
+                }
+            }
+        },
     ]).then((res) => {
-        if (res.addIntern === "Yes") {
-            newIntern();
-        } else {
-            addTeam();
-        }
+        const intern = new Intern(
+            res.nameIntern, 
+            res.titleIntern, 
+            res.idIntern, 
+            res.emailIntern,
+            res.schoolIntern
+            );
+        myTeam.push(intern);
+        addTeam();
     });
 }
 
@@ -211,6 +262,7 @@ const outputHTML = (myTeam) => {
         ${myTeam[i].email}
         ${myTeam[i].gitHub}
         ${myTeam[i].phone}
+        ${myTeam[i].school}
         </div>`
         }
         htmlTemplate += 

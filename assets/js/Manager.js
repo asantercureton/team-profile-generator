@@ -1,7 +1,7 @@
-const Employee = require('./assets/js/Employee.js');
+const Employee = require('./Employee.js');
 
 class Manager extends Employee {
-    constructor(name, title, id, email, officeNum) {
+    constructor(name, title, id, email, officeNumber) {
       // TODO: Add code here
       // super(): Access and Calls function on object's parent.
       super (name, id, email);

@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+// const prettify = require('html-prettify');
+
 
 const Employee = require('./assets/js/Employee.js');
 const Manager = require('./assets/js/Manager.js');
@@ -19,13 +21,13 @@ const addTeam = () => {
         }
     ]).then((res) => {
         if (res.addEmployee === "Manager") {
-            newManager();
+            addManager();
         } else if (res.addEmployee === "Engineer") {
-            newEngineer();
+            addEngineer();
         } else if (res.addEmployee === "Intern") {
-            newIntern();
+            addIntern();
         } else {
-
+            outputHTML(myTeam);
         }
     });
 }
@@ -34,19 +36,54 @@ const addTeam = () => {
 const addManager = () => {
     inquirer.prompt([
         {
-            type: "list",
-            message: "What is your role for this team?",
-            choices: ["Manager", "Engineer", "Intern"],
-            name: "addManager"
-        }
+            type: "input",
+            message: "What is your name?",
+            name: "nameMgr",
+            validate: your_name => {
+                if (your_name) {
+                    return true;
+                } else {
+                    console.log('Provide your name');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "confirm",
+            message: "Are you the Manager for this team?",
+            name: "titleMgr",
+            validate: is_mgr => {
+                if (is_mgr) {
+                    return true;
+                } else {
+                    console.log('Provide your name');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            message: "What is your name?",
+            name: "nameMgr",
+            validate: your_name => {
+                if (your_name) {
+                    return true;
+                } else {
+                    console.log('Provide your name');
+                    return false;
+                }
+            }
+        },
     ]).then((res) => {
-        if (res.addManager === "Manager") {
-            newManager();
-        } else if (res.addManager === "Engineer") {
-            newEngineer();
-        } else (res.addManager === "Intern") {
-            newIntern();
-        }
+        const mgr = new Manager(
+            res.nameMgr, 
+            res.titleMgr, 
+            // res.id, 
+            // res.email, 
+            // res.officeNumber
+            );
+        myTeam.push(mgr);
+        addTeam();
     });
 }
 // ADD ENGINEER
@@ -84,4 +121,35 @@ const addIntern = () => {
     });
 }
 
+addTeam();
+
+
 // WRITE TO HTML
+const outputHTML = (myTeam) => {
+    console.log(myTeam);
+    let htmlTemplate = `<!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Profile</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    </head>
+    
+    <body>
+        <main class="container">`
+        for (var i=0; i<myTeam.length; i++) {
+            htmlTemplate += `<div>${myTeam[i].name}
+            ${myTeam[i].title}</div>`
+        }
+        htmlTemplate += `</main>
+    </body>
+    
+    </html>`
+    fs.writeFile('myTeam.html', htmlTemplate, (err) => {
+        if (err) console.log(err);
+        console.log('Success');
+    });
+};

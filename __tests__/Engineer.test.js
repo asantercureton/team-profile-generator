@@ -25,8 +25,8 @@ test("Can set email via constructor argument", () => {
 
 test("Can set github username via constructor arguments", () => {
     const testValue = "alice";
-    const e = new Engineer(testValue);
-    expect(e.officeNumber).toBe(testValue);
+    const e = new Engineer("Foo", 1, "test@test.com", testValue);
+    expect(e.gitHub).toBe(testValue);
   });
 
 test("Can get name via getName()", () => {

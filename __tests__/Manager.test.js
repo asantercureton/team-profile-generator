@@ -50,7 +50,7 @@ test("Can get email via getEmail()", () => {
 test("Can get office number via getOfficeNumber()", () => {
     const testValue = "111.111.1111";
     const e = new Manager("Foo", 1, "test@test.com", testValue);
-    expect(e.getEmail()).toBe(testValue);
+    expect(e.getOfficeNumber()).toBe(testValue);
   });
 
 test("getRole() should return \"Manager\"", () => {

@@ -25,8 +25,8 @@ test("Can set email via constructor argument", () => {
 
 test("Can set school via constructor arguments", () => {
     const testValue = "UNC-Charlotte";
-    const e = new Intern(testValue);
-    expect(e.officeNumber).toBe(testValue);
+    const e = new Intern("Foo", 1, "test@test.com", testValue);
+    expect(e.school).toBe(testValue);
   });
 
 test("Can get name via getName()", () => {
@@ -50,7 +50,7 @@ test("Can get email via getEmail()", () => {
 test("Can get school via getSchool()", () => {
   const testValue = "UNC-Charlotte";
   const e = new Intern("Foo", 1, "test@test.com", testValue);
-  expect(e.getGitHub()).toBe(testValue);
+  expect(e.getSchool()).toBe(testValue);
 });
 
 test("getRole() should return \"Intern\"", () => {

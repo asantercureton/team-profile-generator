@@ -3,10 +3,10 @@ const fs = require('fs');
 // const prettify = require('html-prettify');
 
 
-const Employee = require('./assets/js/Employee.js');
-const Manager = require('./assets/js/Manager.js');
-const Engineer = require('./assets/js/Engineer.js');
-const Intern = require('./assets/js/Intern.js');
+const Employee = require('/lib/Employee.js');
+const Manager = require('/lib/Manager.js');
+const Engineer = require('/lib/Engineer.js');
+const Intern = require('/lib/Intern.js');
 
 let myTeam = [];
 
@@ -235,9 +235,6 @@ const addIntern = () => {
     });
 }
 
-addTeam();
-
-
 // WRITE TO HTML
 const outputHTML = (myTeam) => {
     console.log(myTeam);
@@ -301,6 +298,18 @@ const outputHTML = (myTeam) => {
     </html>`
     fs.writeFile('myTeam.html', htmlTemplate, (err) => {
         if (err) console.log(err);
-        console.log('Success');
+        console.log('Success! Please check out the myTeam.html');
     });
 };
+
+addTeam()
+    .then(addManager)
+    .then(myTeam => {
+        return generateHTML(myTeam);
+      })
+      .then(htmlTemplate => {
+        return writeFile(htmlTemplate);
+      })
+      .catch(err => {
+     console.log(err);
+      });

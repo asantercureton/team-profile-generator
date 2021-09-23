@@ -27,7 +27,7 @@ Designed a note taker application using Express.js that allows user to save impo
 
 [Video Recording](https://watch.screencastify.com/v/jPW68H8xQCSZNifrLZdp)
 
-[Test Passed](https://watch.screencastify.com/v/jPW68H8xQCSZNifrLZdp)
+[Test Passed](https://watch.screencastify.com/v/GlPjXp6tqQXHIS0Qi7tB)
 
 ## Installation
 Run "npm install" at root directory.

@@ -238,7 +238,42 @@ const addIntern = () => {
 // WRITE TO HTML
 const outputHTML = (myTeam) => {
     console.log(myTeam);
-    let htmlTemplate = `<!DOCTYPE html>
+    const name = myTeam.getName();
+    const role = myTeam.getRole();
+    const id = myTeam.getId();
+    const email = myTeam.getEmail();
+    let htmlTemplate = "";
+    if (role === "Manager") {
+        const officeNumber = myTeam.getOfficeNumber();
+        htmlTemplate += `<div>
+        <div>${name}</div>
+        <div>${title}</div>
+        <div>${id}</div>
+        <div>${email}</div>
+        <div>${officeNumber}</div>
+        </div>`
+    } else if (role === "Engineer") {
+        const gitHub = myTeam.getGitHub();
+        htmlTemplate += `<div>
+        <div>${name}</div>
+        <div>${title}</div>
+        <div>${id}</div>
+        <div>${email}</div>
+        <div>${gitHub}</div>
+        </div>`
+    } else if (role === "Intern") {
+        const school = myTeam.getSchool();
+        htmlTemplate += `<div>
+        <div>${name}</div>
+        <div>${title}</div>
+        <div>${id}</div>
+        <div>${email}</div>
+        <div>${school}</div>
+        </div>`
+    } else {
+
+    };
+    `<!DOCTYPE html>
     <html lang="en">
     
     <head>
@@ -251,34 +286,7 @@ const outputHTML = (myTeam) => {
     
     <body>
         <main class="container">`
-        switch (new Employee) {
-            case Manager:
-                htmlTemplate += `<div>
-                ${myTeam[i].name}
-                ${myTeam[i].title}
-                ${myTeam[i].id}
-                ${myTeam[i].email}
-                ${myTeam[i].phone}
-                </div>`
-              break;
-            case Engineer:
-                htmlTemplate += `<div>
-                ${myTeam[i].name}
-                ${myTeam[i].title}
-                ${myTeam[i].id}
-                ${myTeam[i].email}
-                ${myTeam[i].gitHub}
-                </div>`
-              break;
-            case Intern:
-                htmlTemplate += `<div>
-                ${myTeam[i].name}
-                ${myTeam[i].title}
-                ${myTeam[i].id}
-                ${myTeam[i].email}
-                ${myTeam[i].school}
-                </div>`
-          }
+        
           htmlTemplate +=
         // for (var i=0; i<myTeam.length; i++) {
         //     htmlTemplate += `<div>

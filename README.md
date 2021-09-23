@@ -23,11 +23,11 @@ Designed a note taker application using Express.js that allows user to save impo
 
 
 ## Links
-[App Code](https://github.com/asantercureton/note-taker-app)
+[GitHub Repo](https://github.com/asantercureton/note-taker-app)
 
-[Video Recording](https://watch.screencastify.com/v/jPW68H8xQCSZNifrLZdp)
+[Walkthrough: Prompts](hhttps://watch.screencastify.com/v/15FnHhkfObTCqrxJVJEw)
 
-[Test Passed](https://watch.screencastify.com/v/GlPjXp6tqQXHIS0Qi7tB)
+[Walkthrough: Test Passed](https://watch.screencastify.com/v/GlPjXp6tqQXHIS0Qi7tB)
 
 ## Installation
 Run "npm install" at root directory.
@@ -45,9 +45,16 @@ Run "npm run test" to execute all tests.
 ## Screenshots
 Below is a screenshot of the project:
 
+| RUNNING THE COMMAND-LINE PROMPTS
+
+![Image of html](./assets/images/team_prompt.jpg)
+
+----
+| PASSED TESTS
+
 ![Image of html](./assets/images/team_passed_test.jpg)
 
-<!-- ![Image of html](./public/assets/images/note-taker-2.jpg) -->
+
 
 ## License
 ![GitHub license](https://img.shields.io/badge/license-ISC-blue.svg)

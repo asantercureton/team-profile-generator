@@ -25,7 +25,7 @@ Designed a note taker application using Express.js that allows user to save impo
 ## Links
 [GitHub Repo](https://github.com/asantercureton/note-taker-app)
 
-[Walkthrough: Prompts](hhttps://watch.screencastify.com/v/15FnHhkfObTCqrxJVJEw)
+[Walkthrough: Prompts](https://watch.screencastify.com/v/15FnHhkfObTCqrxJVJEw)
 
 [Walkthrough: Test Passed](https://watch.screencastify.com/v/GlPjXp6tqQXHIS0Qi7tB)
 

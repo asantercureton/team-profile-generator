@@ -27,7 +27,10 @@ const addTeam = () => {
         } else if (res.addEmployee === "Intern") {
             addIntern();
         } else {
-            outputHTML(myTeam);
+            fs.writeFile('myTeam.html', outputHTML(myTeam), (err) => {
+                if (err) console.log(err);
+                console.log('Success! Please check out the myTeam.html');
+            });
         }
     });
 }
@@ -89,8 +92,7 @@ const addManager = () => {
         },
     ]).then((res) => {
         const mgr = new Manager(
-            res.nameMgr, 
-            res.titleMgr, 
+            res.nameMgr,  
             res.idMgr, 
             res.emailMgr, 
             res.phoneMgr
@@ -304,10 +306,10 @@ const outputHTML = (myTeam) => {
     </body>
     
     </html>`
-    fs.writeFile('myTeam.html', htmlTemplate, (err) => {
-        if (err) console.log(err);
-        console.log('Success! Please check out the myTeam.html');
-    });
+    // fs.writeFile('myTeam.html', htmlTemplate, (err) => {
+    //     if (err) console.log(err);
+    //     console.log('Success! Please check out the myTeam.html');
+    // });
 };
 
 addTeam();
